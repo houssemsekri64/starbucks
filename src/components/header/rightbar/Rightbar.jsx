@@ -1,23 +1,38 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Typography, Stack } from "@mui/material";
 import { MdLocationPin } from "react-icons/md";
 import {
   BoxSpaceBetween,
   StyledButton,
-  displayDesktop,
   LinkHeader,
 } from "../../../themes/CustomStyle";
 
 function Rightbar() {
   return (
-    <BoxSpaceBetween gap={4} sx={displayDesktop}>
+    <Stack
+      gap={{ md: 4, xs: 2 }}
+      direction={{
+        md: "row",
+        xs: "column-reverse",
+      }}
+      alignItems={{md:"center"}}
+      mt={{ md: 0, xs: 6 }}
+    >
       <LinkHeader href="#">
-        <BoxSpaceBetween gap={1}>
+        <BoxSpaceBetween
+          sx={{ justifyContent: { xs: "flex-start", md: "space-between" } }}
+          gap={1}
+        >
           <MdLocationPin size={24} />
           <Typography variant="headerLink">Find a store</Typography>
         </BoxSpaceBetween>
       </LinkHeader>
-      <BoxSpaceBetween sx={{ gap: 2 }}>
+      <BoxSpaceBetween
+        sx={{
+          gap: 2,
+          justifyContent: { xs: "flex-start", md: "space-between" },
+        }}
+      >
         <StyledButton size="medium" disableRipple={true} variant="outlined">
           Sign in
         </StyledButton>
@@ -25,7 +40,7 @@ function Rightbar() {
           Join now
         </StyledButton>
       </BoxSpaceBetween>
-    </BoxSpaceBetween>
+    </Stack>
   );
 }
 
